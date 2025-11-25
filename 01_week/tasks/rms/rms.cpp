@@ -9,6 +9,9 @@
 double CalculateRMS(double values[], size_t size) {
 
     if (size == 0) return 0.0; //Если вдруг массив нулевой.
+    if (values == nullptr || size == 0) {
+        return 0.0; // доп проверка на nullptr. Тоже важно оказалось
+    }
 
     double RMS = 0.0;
     for (size_t i = 0; i < size; ++i) {
