@@ -10,7 +10,7 @@ double CalculateRMS(double values[], size_t size) {
 
     if (size == 0) return 0.0; //Если вдруг массив нулевой.
     if (values == nullptr || size == 0) {
-        return 0.0; // доп проверка на nullptr. Тоже важно оказалось
+        return 0.0; // доп проверка на nullptr.
     }
 
     double RMS = 0.0;
