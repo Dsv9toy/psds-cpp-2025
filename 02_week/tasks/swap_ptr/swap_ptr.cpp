@@ -17,6 +17,12 @@ void SwapPtr(const int*& a, const int*& b) {
 }
 
 void SwapPtr(int& a, int& b) {
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void SwapPtr(int**& a, int**& b) {
     int** tmp = a;
     a = b;
     b = tmp;
