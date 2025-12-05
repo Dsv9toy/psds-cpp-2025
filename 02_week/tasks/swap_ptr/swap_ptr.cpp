@@ -1,6 +1,24 @@
 #include <stdexcept>
 
 
-void SwapPtr(/* write arguments here */) {
-    throw std::runtime_error{"Not implemented"};
+// В тестах есть три варианта каким могут быть аргументы 1-неконстартные указатели, 2 - константные указатели, 3 - указатели на указатели
+// Тогда воспользуемся перегрузкой функций как из лекций. У нас тогда будет три функции одинаковые по содержанию и разные 
+// принимаемому значению. Тесты сами выберут чё им надо)
+
+void SwapPtr(int*& a, int*& b) {
+    int* tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void SwapPtr(const int*& a, const int*& b) {
+    const int* tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void SwapPtr(int& a, int& b) {
+    int** tmp = a;
+    a = b;
+    b = tmp;
 }
