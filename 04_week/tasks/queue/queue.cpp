@@ -153,7 +153,6 @@ bool Queue::operator==(const Queue& otherQueue) const {
     if (Empty()) return true;
 
 //Для одной очереди
-    size_t idx1 = 0;
     std::vector<int> temp1;
 
     if (!outputDat.empty()) {
