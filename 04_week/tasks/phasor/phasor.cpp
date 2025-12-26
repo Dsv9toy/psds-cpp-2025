@@ -107,15 +107,15 @@ Phasor::Phasor(double magnitude, double phaseRad) {
     SetPolar(magnitude, phaseRad);
 }
 
-Phasor::Phasor(double magnitude, double phaseRad, ExpTag tag)
+Phasor::Phasor(double magnitude, double phaseRad, ExpTag)
     : Phasor(magnitude, phaseRad) { //Делегирование 
 }
 
-Phasor::Phasor(double magnitude, double phaseDeg, DegTag tag) {
+Phasor::Phasor(double magnitude, double phaseDeg, DegTag) {
     SetPolar(magnitude, DegToRad(phaseDeg));
 }
 
-Phasor::Phasor(double real, double imag, AlgTag tag)
+Phasor::Phasor(double real, double imag, AlgTag)
     : real_(real), imag_(imag) {
     // уже в декартовых координатах
 }
