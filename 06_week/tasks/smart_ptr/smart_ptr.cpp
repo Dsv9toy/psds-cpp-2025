@@ -14,7 +14,7 @@ struct ControlBlock {
     size_t weakCount;      // количество WeakPtr
     
     ControlBlock(std::string* ptr) 
-        : objPtr(ptr), sharedCount(1), weakCount(1) {} 
+        : objPtr(ptr), sharedCount(1), weakCount(0) {} 
     
     ~ControlBlock() {
         delete objPtr;  
@@ -100,9 +100,14 @@ public:
     
     void Reset(std::string* new_ptr = nullptr) {
         release();
-        
+    
+    if (new_ptr) {
         rawPtr_ = new_ptr;
-        block_ = new_ptr ? new ControlBlock(new_ptr) : nullptr;
+        block_ = new ControlBlock(new_ptr);
+    } else {
+        rawPtr_ = nullptr;
+        block_ = nullptr;
+    }
     }
     
     void Swap(SharedPtr& other) noexcept {
