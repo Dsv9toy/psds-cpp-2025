@@ -131,10 +131,10 @@ private:
         if (block_) {
             block_->sharedCount--;
             if (block_->sharedCount == 0) {
-                block_->objPtr = nullptr;  // объект удалится в деструкторе блока
-                // Не удаляем блок, если есть weak_ptr
-                if (block_->weakCount == 0) {
-                    delete block_;
+                if(block_->weakCount ==0) delete block_;
+                else {
+                     delete block_->objPtr;
+                     block_->objPtr = nullptr;
                 }
             }
         }
